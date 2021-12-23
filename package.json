@@ -1,0 +1,17 @@
+{
+  "name": "docker-website",
+  "version": "1.0.0",
+  "description": "A simple project just to practice with containers",
+  "main": "./server/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "loureirovini",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2"
+  }
+}

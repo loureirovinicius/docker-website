@@ -1,0 +1,46 @@
+# In case you're using more than one container, don't forget to change the host_port of each container. 
+
+version: '3'
+services:
+  node1:
+    build: 
+      dockerfile: ./
+      context: .
+    image: loureirovini/docker-website:latest
+    container_name: node
+    ports:
+      - ${HOST_PORT}:${CONTAINER_PORT}
+    networks:
+      - contact-network
+    volumes:
+      - ./:/app
+    
+  node2:
+    build:
+      dockerfile: ./
+      context: .
+    image: loureirovini/docker-website:latest
+    container_name: node2
+    ports:
+      - ${HOST_PORT}:${CONTAINER_PORT}
+    networks:
+      - contact-network
+    volumes:
+      - ./:/app
+
+  node3:
+    build: 
+      dockerfile: ./
+      context: .
+    image: loureirovini/docker-website:latest
+    container_name: node3
+    ports:
+      - ${HOST_PORT}:${CONTAINER_PORT}
+    networks:
+      - contact-network
+    volumes:
+      - ./:/app
+
+networks:
+  contact-network:
+    driver: bridge
