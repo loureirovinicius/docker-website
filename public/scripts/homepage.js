@@ -1,4 +1,4 @@
-const redirects = () => {
+const redirects = (() => {
     let cards = document.getElementsByClassName('button')
 
     for (let i = 0; i < cards.length; i++) {
@@ -16,6 +16,4 @@ const redirects = () => {
             }
         })
     }
-}
-
-redirects()
+})()

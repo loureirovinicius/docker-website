@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-deployment
+spec:
+  replicas: 2
+  template:
+    metadata:
+      name: server-pod
+      labels:
+        app: server-pod
+    spec:
+      containers:
+        - name: server-container
+          image: loureirovini/docker-website:latest
+          envFrom:
+            - configMapRef:
+                name: server-configmap
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            periodSeconds: 10
+            failureThreshold: 3
+            initialDelaySeconds: 20
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            periodSeconds: 10
+            failureThreshold: 5
+            initialDelaySeconds: 3
+          resources:
+            requests:
+              cpu: 10m
+  selector:
+    matchLabels:
+      app: server-pod
