@@ -1,11 +1,13 @@
 # In case you're using more than one container, don't forget to change the host_port of each container. 
+# You can either pull the Docker Image from my Docker Hub repository or use the project's Dockerfile. It's your choice.
+# For the Dockerfile you just need to uncomment the lines below and comment the "image" line.
 
 version: '3'
 services:
   node1:
-    build: 
-      context: .
-      dockerfile: Dockerfile
+    # build: 
+    #   context: .
+    #   dockerfile: Dockerfile
     image: loureirovini/docker-website:latest
     container_name: node
     ports:
