@@ -12,11 +12,12 @@
 - A Kubernetes ConfigMap for environment variables;
 - A Node.js (Express) server;
 - Some static HTML files;
+- CRUD operations (GET, POST, PUT and DELETE);
+- A cloud based database (MongoDB Atlas);
 
 ## What is missing (to be implemented soon):
 
 - The logical part of "commands", "concepts" and "others";
-- A Database;
 
 ## Considerations:
 
