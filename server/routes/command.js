@@ -1,4 +1,5 @@
 import express, { Router } from "express";
+import CommandsController from "../controllers/CommandsController.js";
 import path from 'path'
 
 const routes = new Router
@@ -8,5 +9,10 @@ const routes = new Router
 const staticFile = path.resolve('public/')
 
 routes.use('/commands', express.static(staticFile, { index: 'command.html'}))
+
+routes.get('/commands', CommandsController.index)
+routes.post('/commands', CommandsController.store)
+routes.put('/commands/:note_id', CommandsController.update)
+routes.delete('/commands', CommandsController.delete)
 
 export default routes;

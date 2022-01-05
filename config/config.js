@@ -6,3 +6,4 @@ import path from 'path'
 dotenv.config({ path: path.resolve('.env')})
 
 export const port = process.env.PORT
+export const dbConnection = process.env.DBCONNECTION 

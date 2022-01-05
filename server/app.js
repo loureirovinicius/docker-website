@@ -1,20 +1,27 @@
 import express from 'express'
+import mongoose from 'mongoose'
 
 import homepage from './routes/homepage.js'
 import commands from './routes/command.js'
 import concepts from './routes/concept.js'
 import others from './routes/other.js'
 
+import { dbConnection } from '../config/config.js'
+
 class App {
+
     constructor() {
         this.server = express();
+        this.middleware();
         this.routes();
-        this.middleware()
+        mongoose.connect(`${dbConnection}`, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        })
     }
 
-    // Not actually using this, but in case you need, it's already set. Just put it into constructor.
     middleware() {
-        this.server.use(express.json());
+        this.server.use(express.json())
     }
 
     routes() {

@@ -12,5 +12,4 @@ routes.get('/', HomepageController.status)
 
 routes.use('/', express.static(staticFile, { index: 'homepage.html'}))
 
-
 export default routes;
