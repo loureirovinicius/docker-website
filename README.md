@@ -19,6 +19,16 @@
 
 - The logical part of "commands", "concepts" and "others";
 
+## How to use:
+
+- Set the .env file according to the .env.example;
+- Open your terminal and type the command below:
+
+```
+docker-compose up
+```
+- Access it using the localhost IP address/your particular IP address.
+
 ## Considerations:
 
 - I'm implementing things according to my free time;
