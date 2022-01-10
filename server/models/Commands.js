@@ -3,9 +3,10 @@ const { Schema, model } = mongoose
 
 const CommandsSchema = new Schema({
     title: String,
+    command: String,
     description: String,
     reference: String,
-    outdated: Boolean
+    technology: String,
 })
 
 export default model('Commands', CommandsSchema)

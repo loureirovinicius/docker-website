@@ -10,11 +10,13 @@ class ConceptsController{
 
     async store(req, res) {
 
-        const { title, description, reference } = req.body
+        const { title, topic, description, technology, reference } = req.body
 
         const note = await Concepts.create({
             title,
+            topic,
             description,
+            technology,
             reference
         })
 
@@ -24,11 +26,13 @@ class ConceptsController{
     async update(req, res) {
 
         const { note_id } = req.params
-        const { title, description, reference } = req.body
+        const { title, topic, description, technology, reference } = req.body
 
         await Concepts.updateOne({ _id: note_id }, {
             title, 
+            topic,
             description,
+            technology,
             reference
         })
 

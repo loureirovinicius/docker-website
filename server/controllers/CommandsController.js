@@ -4,10 +4,10 @@ class CommandsController{
     
     async index(req, res) {
 
-        const { outdated } = req.query
+        const { technology } = req.query
 
-        if (outdated !== undefined) {
-            const notes = await Commands.find({outdated})
+        if (technology !== undefined) {
+            const notes = await Commands.find({technology})
             return res.json(notes)
         }
 
@@ -17,13 +17,14 @@ class CommandsController{
 
     async store(req, res) {
 
-        const { title, description, reference, outdated } = req.body
+        const { title, command, description, reference, technology } = req.body
         
         const commandNote = await Commands.create({
             title,
+            command,
             description,
             reference,
-            outdated
+            technology
         })
         
         return res.json(commandNote)
@@ -31,7 +32,7 @@ class CommandsController{
 
     async update(req, res) {
         const { note_id } = req.params
-        const { title, description, reference, outdated } = req.body 
+        const { title, command, description, reference, technology } = req.body 
         
         const note = Commands.findById(note_id)
 
@@ -41,9 +42,10 @@ class CommandsController{
 
         await Commands.updateOne({ _id: note_id }, {
             title,
+            command,
             description,
             reference,
-            outdated
+            technology
         })
 
         return res.json({ message: "Nota atualizada com sucesso!" })

@@ -9,10 +9,10 @@ const routes = new Router
 */
 const staticFile = path.resolve('public/')
 
-routes.get('/others', OthersController.index)
-routes.post('/others', OthersController.store)
-routes.put('/others/:note_id', OthersController.update)
-routes.delete('/others', OthersController.delete)
+routes.get('/others/notes', OthersController.index)
+routes.post('/others/notes', OthersController.store)
+routes.put('/others/notes/:note_id', OthersController.update)
+routes.delete('/others/notes', OthersController.delete)
 
 routes.use('/others', express.static(staticFile, { index: 'other.html'}))
 

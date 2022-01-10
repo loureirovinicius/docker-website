@@ -11,9 +11,9 @@ const staticFile = path.resolve('public/')
 
 routes.use('/concepts', express.static(staticFile, { index: 'concept.html'}))
 
-routes.get('/concepts', ConceptsController.index)
-routes.post('/concepts', ConceptsController.store)
-routes.put('/concepts/:note_id', ConceptsController.update)
-routes.delete('/concepts', ConceptsController.delete)
+routes.get('/concepts/notes', ConceptsController.index)
+routes.post('/concepts/notes', ConceptsController.store)
+routes.put('/concepts/notes/:note_id', ConceptsController.update)
+routes.delete('/concepts/notes', ConceptsController.delete)
 
 export default routes;
