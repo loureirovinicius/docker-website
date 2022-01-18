@@ -1,6 +1,10 @@
 # Studying Project: Docker Website
 #### I've been studying Docker and Kubernetes for a while, and then I thought I could start a new project to practice some concepts and here it is.
 
+## Images:
+
+- https://imgur.com/a/dGyuFCR
+
 ## By now, this project has:
 
 - A Dockerfile;
@@ -12,12 +16,13 @@
 - A Kubernetes ConfigMap for environment variables;
 - A Node.js (Express) server;
 - Some static HTML files;
-- CRUD operations (GET, POST, PUT and DELETE);
+- API with CRUD operations (GET, POST, PUT and DELETE);
 - A cloud based database (MongoDB Atlas);
 
 ## What is missing (to be implemented soon):
 
-- The logical part of "commands", "concepts" and "others";
+- PUT and DELETE operations for "commands", "concepts" and "others;
+- Search engine (the button is already set but I'm still working on the logical part)
 
 ## How to use:
 
@@ -33,5 +38,4 @@ docker-compose up
 
 - I'm implementing things according to my free time;
 - Feel free to reach me for some tips and improvements;
-- This is supposed to be a just-for-practice project, so it's really basic.
-- :)
+- This is supposed to be a just-for-practice project, so it's really basic. :)
