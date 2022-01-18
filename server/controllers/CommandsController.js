@@ -18,7 +18,7 @@ class CommandsController{
     async store(req, res) {
 
         const { title, command, description, reference, technology } = req.body
-        
+
         const commandNote = await Commands.create({
             title,
             command,
@@ -26,8 +26,8 @@ class CommandsController{
             reference,
             technology
         })
-        
-        return res.json(commandNote)
+
+        return res.status(200).json(commandNote)
     }
 
     async update(req, res) {

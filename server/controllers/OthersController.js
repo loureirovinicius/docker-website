@@ -19,9 +19,9 @@ class OthersController{
 
         const note = await Others.create({
             title,
-            description,
+            topic,
             reference,
-            topic
+            description
         })
 
         return res.json(note)
@@ -33,9 +33,9 @@ class OthersController{
 
         await Others.findByIdAndUpdate({ _id: note_id }, {
             title,
-            description,
+            topic,
             reference,
-            topic
+            description
         })
 
         return res.json({ message: "Nota atualizada com sucesso!" })
