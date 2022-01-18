@@ -1,0 +1,279 @@
+/* Fade in effect used in modal transition */
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* --- General config --- */
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+/* --- Header --- */
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100vw;
+    height: 10vh;
+    margin-bottom: 20px;
+
+    background-color: rgb(230, 230, 230);
+}
+
+header a > img {
+    justify-self: start;
+    padding: 5px;
+    width: 5vw;
+    height: 9vh;
+}
+
+.routes {
+    margin: 0px 6px 0px 0px;
+}
+
+.routes > a { 
+    color: rgb(57, 77, 84);
+    text-decoration: none;
+    padding: 0px 3px;
+}
+
+/* --- Notes --- */
+
+ul {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.notes {
+    display: flex;
+    flex-direction: column;
+    
+    margin-top: 20px;
+    padding: 9px;
+    border-radius: 5px;
+    overflow-wrap: break-word;
+
+    height: fit-content;
+    width: 23vw;
+
+    background-color: rgb(61, 151, 184);
+    box-shadow: 2.5px 3px 3px rgb(114, 114, 114);
+    color: white;
+}
+
+.note-title {
+    text-align: center;
+    text-shadow: 1.5px 2px 2px rgb(170, 170, 170);
+}
+
+h2 {
+    margin-bottom: 9px;
+}
+
+.note-command {
+    font-size: small;
+    color: rgb(61, 151, 184);
+    background-color: white;
+
+    width: fit-content;
+    padding: 4px;
+    margin: 0px auto 9px auto;
+}
+
+.note-description {
+    text-align: justify;
+
+    margin-bottom: 9px;
+    height: fit-content;
+}
+
+.note-information {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    height: fit-content;
+    width: auto;
+}
+
+.note-reference {
+    text-decoration: none;
+    color: white;
+    font-size: small;
+    background-color: rgb(57, 77, 84);
+    box-shadow: 0.5px 1.5px 1.5px rgb(49, 49, 49);
+
+    border-radius: 20px;
+    padding: 8px;
+
+}
+
+.note-reference:hover {
+    box-shadow: none;
+}
+
+.note-technology {
+    font-size: small;
+    color: rgb(61, 151, 184);
+    background-color: white;
+    box-shadow: 1px 2px 2px rgb(190, 190, 190);
+
+    border-radius: 20px;
+    padding: 8px;
+    width: fit-content;
+}
+
+/* --- Modal --- */
+
+#open-modal {
+    width: fit-content;
+    height: fit-content;
+    padding: 7px;
+    font-size: 15px;
+    margin-left: 5px;
+
+    background-color: rgb(61, 151, 184);
+    color: white;
+    font-weight: bold;
+    
+    border: none;
+    border-radius: 1.8px;
+
+    cursor: pointer;
+    box-shadow: 2px 2px 2px rgb(160, 160, 160);
+    outline: none;
+}
+
+#search {
+    width: fit-content;
+    height: fit-content;
+    padding: 7px;
+    font-size: 15px;
+    margin-left: 5px;
+
+    background-color: rgb(201, 201, 201);
+    color: rgb(114, 114, 114);
+    font-weight: bold;
+
+    border: none;
+    border-radius: 1.8px;
+
+    cursor: pointer;
+    box-shadow: 2px 2px 2px rgb(170, 170, 170);
+    outline: none;
+
+}
+
+#open-modal:hover,
+#search:hover {
+    box-shadow: none;
+}
+
+dialog {
+    display: none;
+    position: absolute;
+    z-index: 5;
+    bottom: 100px;
+    margin: auto auto;
+    width: 50%;
+    height: fit-content;
+    overflow: auto;
+    background-color: white;
+    animation: fadein 2s;
+
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 30px 5px #7a7a7a;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+}
+
+.input-fields {
+    display: flex;
+    flex-direction: column;
+    width: 73%;
+}
+
+label {
+    color: rgb(61, 151, 184);
+    font-weight: bold;
+    align-self: flex-start;
+}
+
+.input-text {
+    margin: 5px 0px;
+    padding: 5px;
+    height: 25px;
+    
+    border: solid 0.5px rgb(180, 180, 180);
+    border-radius: 5px;
+    box-shadow: 0px 0px 30px 5px rgba(0,0,0,0);
+    outline: none;
+}
+
+.input-text::placeholder {
+    padding: 5px;
+}
+
+#submit {
+    height: 25px;
+    padding: 5px;
+    margin: 5px 0px;
+    
+    outline: none;
+    background-color: rgb(61, 151, 184);
+    color: #FFFFFF;
+    box-shadow: 3px 3px 3px rgb(160, 160, 160);
+    cursor: pointer;
+
+    border: none;
+    border-radius: 5px;
+}
+
+#cancel-button {
+    background-color: rgb(114, 114, 114);
+    box-shadow: 3px 3px 3px rgb(160, 160, 160);
+    color: #FFFFFF;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+
+    height: 25px;
+    padding: 5px;
+    margin: 5px 0px;
+
+    border: none;
+    border-radius: 5px;
+}
+
+#submit:hover,
+#cancel-button:hover {
+    box-shadow: none;
+}
+
+.blur {
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(3px);
+}

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/concepts-stylesheet.css">
+    <link rel="stylesheet" href="./css/concepts.css">
     <title>Concepts - Docker Reminder</title>
 </head>
 <body>
@@ -18,12 +18,38 @@
             <a href="/others">Others</a>
         </div>
     </header>
+    <div>
+        <button id="open-modal">Add note</button>
+        <button id="search">Search</button>
+    </div>
     <main>
         <ul>
 
         </ul>
     </main>
-    <script src="./scripts/concepts.js"></script>
+    <dialog id="modal" hidden>
+        <div class="form">
+            <div id="modal-title">
+                <h2>Insert some informations about your note:</h2>
+            </div>
+            <div class="input-fields">
+                <label for="title">Title:</label>
+                <input type="text" name="title" id="title" class="input-text" placeholder="Ex.: Creating a new container">
+                <label for="topic">Topic:</label>
+                <input type="text" name="topic" id="topic" class="input-text" placeholder="Ex.: Volumes, containers, etc...">
+                <label for="technology">Technology:</label>
+                <input type="text" name="technology" id="technology" class="input-text" placeholder="Ex.: Docker, Kubernetes, etc...">
+                <label for="reference">Reference:</label>
+                <input type="text" name="reference" id="reference" class="input-text" placeholder="Ex.: https://www.docker.com/get-started">
+                <label for="description">Description:</label>
+                <textarea name="description" id="description" cols="30" rows="50" class="input-text" placeholder="Ex.: Each container that you run is repeatable..."></textarea>
+                <button type="submit" id="submit">Create</button>
+                <button id="cancel-button">Cancel</button>
+            </div>
+        </div>
+    </dialog>
+    <script src="./scripts/concepts-scripts/concepts-get.js"></script>
+    <script src="./scripts/concepts-scripts/concepts-post.js"></script>
     <noscript>You must enable JavaScript in order to use this page correctly.</noscript>
 </body>
 </html>
