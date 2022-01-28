@@ -21,8 +21,7 @@
 
 ## What is missing (to be implemented soon):
 
-- PUT and DELETE operations for "commands", "concepts" and "others;
-- Search engine (the button is already set but I'm still working on the logical part)
+- PUT and DELETE operations for "commands", "concepts" and "others";
 
 ## How to use:
 
