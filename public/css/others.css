@@ -9,6 +9,17 @@
     }
 }
 
+@keyframes slide-right {
+    0% {
+        transform: translateX(0);
+        box-shadow: none;
+    }
+    100% {
+        transform: translateX(7px);
+        box-shadow: 2px 2px 2px rgb(170, 170, 170);
+    }
+}
+
 /* --- General config --- */
 
 * {
@@ -141,7 +152,7 @@ h2 {
     font-weight: bold;
     
     border: none;
-    border-radius: 1.8px;
+    border-radius: 1.8px 0px 0px 1.8px;
 
     cursor: pointer;
     box-shadow: 2px 2px 2px rgb(160, 160, 160);
@@ -173,11 +184,33 @@ h2 {
     box-shadow: none;
 }
 
+#error-message-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    width: fit-content;
+    height: fit-content;
+    margin-bottom: 5px;
+}
+
+.error-message {
+    width: fit-content;
+    height: min-content;
+    padding: 15px;
+    margin: 8px;
+
+    color: white;
+    background-color: rgb(211, 35, 35);
+    border-radius: 5px;
+}
+
 dialog {
     display: none;
     position: absolute;
     z-index: 5;
-    bottom: 100px;
+    top: 100px;
     margin: auto auto;
     width: 50%;
     height: fit-content;
@@ -266,4 +299,29 @@ label {
     -o-filter: blur(3px);
     -ms-filter: blur(3px);
     filter: blur(3px);
+}
+
+/* --- Search Button */
+
+.slide-right {
+    animation: slide-right 0.5s both;
+}
+
+#search-input {
+    display: none;
+
+    width: fit-content;
+    height: fit-content;
+    padding: 7px;
+    font-size: 15px;
+    margin: -10px;
+
+    background-color: rgb(201, 201, 201);
+    color: rgb(114, 114, 114);
+
+    border: none;
+    border-radius: 0px 1.8px 1.8px 0px;
+
+    outline: none;
+    animation: slide-right 0.5s both;
 }
