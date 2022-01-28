@@ -1,12 +1,38 @@
-const showNotes = (() => {
-    fetch('http://localhost:80/commands/notes')
+const showNotes = () => {
+    fetch('/commands/notes')
     .then(response => response.json())
     .then((note) => {
         note.forEach(element => {
-            element.outdated === true ? element.outdated = 'Valid' : element.outdated = 'Outdated'
-
             createNote(element.title, element.command, element.description, element.reference, element.technology)
         });
+    })
+}
+
+const searchNotes = (() => {
+    showNotes()
+    const searchButton = document.querySelector('#search')
+    const searchInput = document.querySelector('#search-input')
+    searchButton.addEventListener('click', () => {
+        searchInput.style.display = 'inline'
+    })
+
+    searchInput.addEventListener('input', (e) => {
+        const search = searchInput.value
+        const notes = document.getElementsByTagName('ul')[0]    
+        notes.replaceChildren('')
+
+        if (e.data === null) {
+            notes.replaceChildren('')
+            return showNotes()
+        }
+
+        return fetch(`/commands/notes?technology=${search}`)
+        .then(res => res.json())
+        .then((note) => {
+            note.forEach(element => {
+                createNote(element.title, element.command, element.description, element.reference, element.technology)
+            });
+        })
     })
 })()
 

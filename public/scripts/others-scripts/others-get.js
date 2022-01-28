@@ -1,10 +1,38 @@
-const showNotes = (() => {
-    fetch('http://localhost:80/others/notes')
+const showNotes = () => {
+    fetch('/others/notes')
     .then(response => response.json())
     .then((note) => {
         note.forEach(element => {
             createNode(element.title, element.description, element.reference, element.topic)
         });
+    })
+}
+
+const searchNotes = (() => {
+    showNotes()
+    const searchButton = document.querySelector('#search')
+    const searchInput = document.querySelector('#search-input')
+    searchButton.addEventListener('click', () => {
+        searchInput.style.display = 'inline'
+    })
+
+    searchInput.addEventListener('input', (e) => {
+        const search = searchInput.value
+        const notes = document.getElementsByTagName('ul')[0]    
+        notes.replaceChildren('')
+
+        if (e.data === null) {
+            notes.replaceChildren('')
+            return showNotes()
+        }
+
+        return fetch(`/others/notes?topic=${search}`)
+        .then(res => res.json())
+        .then((note) => {
+            note.forEach(element => {
+                createNote(element.title, element.description, element.reference, element.topic)
+            });
+        })
     })
 })()
 

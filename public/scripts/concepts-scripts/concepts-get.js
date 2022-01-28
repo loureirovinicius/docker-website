@@ -1,14 +1,42 @@
-const showNotes = (() => {
-    fetch('http://localhost:80/concepts/notes')
+const showNotes = () => {
+    fetch('/concepts/notes')
     .then(response => response.json())
     .then((note) => {
         note.forEach(element => {
-            createNode(element.title, element.topic, element.description, element.technology, element.reference)
+            createNote(element.title, element.topic, element.description, element.technology, element.reference)
         });
+    })
+}
+
+const searchNotes = (() => {
+    showNotes()
+    const searchButton = document.querySelector('#search')
+    const searchInput = document.querySelector('#search-input')
+    searchButton.addEventListener('click', () => {
+        searchInput.style.display = 'inline'
+    })
+
+    searchInput.addEventListener('input', (e) => {
+        const search = searchInput.value
+        const notes = document.getElementsByTagName('ul')[0]    
+        notes.replaceChildren('')
+
+        if (e.data === null) {
+            notes.replaceChildren('')
+            return showNotes()
+        }
+
+        return fetch(`/concepts/notes?title=${search}`)
+        .then(res => res.json())
+        .then((note) => {
+            note.forEach(element => {
+                createNote(element.title, element.topic, element.description, element.technology, element.reference)
+            });
+        })
     })
 })()
 
-async function createNode(title, topic, description, technology, reference) {
+async function createNote(title, topic, description, technology, reference) {
     const noteList = document.getElementsByTagName('ul')[0]
     const note = document.createElement('li')    
     note.className = 'notes'
