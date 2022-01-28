@@ -4,6 +4,13 @@ class ConceptsController{
     
     async index(req, res) {
 
+        const { title } = req.query
+
+        if (title !== undefined) {
+            const notes = await Concepts.find({title})
+            return res.json(notes)
+        }
+
         const notes = await Concepts.find({})
         return res.json(notes)
     }

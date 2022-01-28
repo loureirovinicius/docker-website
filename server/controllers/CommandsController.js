@@ -16,7 +16,6 @@ class CommandsController{
     }
 
     async store(req, res) {
-
         const { title, command, description, reference, technology } = req.body
 
         const commandNote = await Commands.create({
@@ -26,8 +25,8 @@ class CommandsController{
             reference,
             technology
         })
-
-        return res.status(200).json(commandNote)
+        
+        return res.status(200).json({ message: 'Note created!' })    
     }
 
     async update(req, res) {
@@ -37,7 +36,7 @@ class CommandsController{
         const note = Commands.findById(note_id)
 
         if (!note) {
-            res.status(400).send({ error: "Essa nota não existe" })
+            res.status(400).send({ error: "This note doesn't exist!" })
         }
 
         await Commands.updateOne({ _id: note_id }, {
@@ -48,7 +47,7 @@ class CommandsController{
             technology
         })
 
-        return res.json({ message: "Nota atualizada com sucesso!" })
+        return res.json({ message: "Nota updated!" })
     }
 
     async delete(req, res) {
@@ -57,7 +56,7 @@ class CommandsController{
 
         await Commands.findByIdAndDelete({ _id: house_id })
 
-        return res.json({ message: "Nota excluída com sucesso!" })
+        return res.json({ message: "Note deleted!" })
     }
 }
 
