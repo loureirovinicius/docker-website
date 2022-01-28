@@ -21,6 +21,7 @@
     <div>
         <button id="open-modal">Add note</button>
         <button id="search">Search</button>
+        <input type="text" name="search" id="search-input" placeholder="Ex.: Docker">
     </div>
     <main>
         <ul>
@@ -32,6 +33,7 @@
             <div id="modal-title">
                 <h2>Insert some informations about your note:</h2>
             </div>
+            <div id="error-message-container"></div>
             <div class="input-fields">
                 <label for="title">Title:</label>
                 <input type="text" name="title" id="title" class="input-text" placeholder="Ex.: Creating a new container">
